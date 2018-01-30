@@ -1,10 +1,14 @@
 {
   "name": "chai-structured-like",
   "scripts": {
-    "test": "mocha test/**/*.test.js --ui exports --recursive --reporter spec --check-leaks"
+    "test": "mocha test/**/*.test.js --ui exports --recursive --reporter spec --check-leaks",
+    "cover": "nyc --check-coverage --lines 90 npm test",
+    "coveralls": "npm run cover && nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.0.0"
+    "coveralls": "^3.0.0",
+    "mocha": "^5.0.0",
+    "nyc": "^11.4.1"
   }
 }
