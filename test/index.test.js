@@ -16,7 +16,8 @@ module.exports = {
   "handles identically structured objects": {
     "accepts empty objects": () => expect({}).to.be.structured({}),
     "compares numbers": () => expect({ n: 0 }).to.be.structured({ n: 1 }),
-    "compares multiple properties": () => expect({ n: 0, m: true, s: "hi" }).to.be.structured({ n: 1, m: false, s: "hey" })
+    "compares multiple properties": () => expect({ n: 0, m: true, s: "hi" }).to.be.structured({ n: 1, m: false, s: "hey" }),
+    "compares arrays": () => expect({ a: [true] }).to.be.structured({ a: [] })
   },
   "handles differences in structure": {
     "rejects when number of properties does not match": () => expect(() => expect({ n: 0 }).to.be.structured({ n: 0, m: 0 })).to.throw(),
