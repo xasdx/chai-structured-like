@@ -30,5 +30,6 @@ module.exports = {
     "rejects when inner objects of inner objects do not match": () => {
       expect(() => expect({ n: { a: { b: 1 } }}).to.be.structured({ n: { a: { b: "" } }})).to.throw()
     }
-  }
+  },
+  "supports structuredLike alias": () => expect({ a: 0 }).to.be.structuredLike({ a: 0 })
 }
