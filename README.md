@@ -7,7 +7,7 @@
 
 ## What it does
 
-Asserts that two objects has the same stucture. The structure of objects are equal when:
+Asserts that two objects has the same structure. The structure of objects are equal when:
 
 - The objects have the same number of properties
 - The properties match by name
@@ -33,7 +33,7 @@ Or even compare the structure of nested objects:
 expect({ a: 1, b: { c: "" }}).to.be.structuredLike({ a: 123, b: { c: "str" }})
 ```
 
-Or use the shorter `stuctured` alias
+Or use the shorter `structured` alias
 
 ```js
 expect({ a: 1, b: [] }).to.be.structured({ a: 0, b: [true] })
