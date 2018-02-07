@@ -1,9 +1,10 @@
 let { expect, use } = require("chai")
 let structuredLike = require("../lib")
+let Car = require("./car")
+let OtherCar = require("./othercar")
 
 use(structuredLike)
 
-function Car() {}
 function Boat() {}
 
 module.exports = {
@@ -34,7 +35,8 @@ module.exports = {
     "rejects when inner objects of inner objects do not match": () => {
       expect(() => expect({ n: { a: { b: 1 } }}).to.be.structured({ n: { a: { b: "" } }})).to.throw()
     },
-    "rejects when objects are built by different constructors": () => expect(() => expect({ obj: new Car() }).to.be.structured({ obj: new Boat() })).to.throw()
+    "rejects when objects are built by different constructors": () => expect(() => expect({ obj: new Car() }).to.be.structured({ obj: new Boat() })).to.throw(),
+    "rejects when objects are built by different constructors with same name": () => expect(() => expect({ obj: new Car() }).to.be.structured({ obj: new OtherCar() })).to.throw()
   },
   "supports structuredLike alias": () => expect({ a: 0 }).to.be.structuredLike({ a: 0 })
 }
