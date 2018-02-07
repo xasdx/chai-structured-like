@@ -23,7 +23,8 @@ module.exports = {
     "compares multiple properties": () => expect({ n: 0, m: true, s: "hi" }).to.be.structured({ n: 1, m: false, s: "hey" }),
     "compares arrays": () => expect({ a: [true] }).to.be.structured({ a: [] }),
     "compares inner objects": () => expect({ a: 1, b: { c: "" }}).to.be.structured({ a: 123, b: { c: "str" }}),
-    "compares objects built by a constructor function": () => expect({ obj: new Car() }).to.be.structured({ obj: new Car() })
+    "compares objects built by a constructor function": () => expect({ obj: new Car() }).to.be.structured({ obj: new Car() }),
+    "asserts an object is built by a constructor function": () => expect({ obj: new Car() }).to.be.structured({ obj: Car })
   },
   "handles differences in structure": {
     "rejects when number of properties does not match": () => expect(() => expect({ n: 0 }).to.be.structured({ n: 0, m: 0 })).to.throw(),
